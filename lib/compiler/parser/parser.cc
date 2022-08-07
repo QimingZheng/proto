@@ -30,11 +30,6 @@ proto_compiler::descriptor::FileDescriptor* Parser::getFileDescriptor() {
     amendDescriptorTree(messages, message);
   }
 
-  // for (auto& message : fileDescriptor->getMessageDescriptors()) {
-  //   message->setEnclosingDescriptor(fileDescriptor);
-  // }
-
-  std::cout << fileDescriptor->debugString() << "\n";
   return fileDescriptor;
 }
 

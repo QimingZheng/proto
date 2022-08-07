@@ -1,2 +1,4 @@
 bazel-*
 .vscode/
+pb.h
+pb.cc

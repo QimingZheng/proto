@@ -23,11 +23,6 @@ int main(int argc, char** argv) {
 
   auto tokens = tk.scan();
 
-  for (auto tk : tokens) {
-    std::cout << tokenizer::Token::getTokenTypeString(tk.type()) << " ";
-  }
-  std::cout << "\n";
-
   parser::Parser ps(tokens);
 
   auto fileDescriptor = ps.getFileDescriptor();
@@ -35,9 +30,7 @@ int main(int argc, char** argv) {
   generator::CodeGenerator cg(outputPathName);
 
   auto interface = cg.generateInterface(fileDescriptor);
-  std::cout << "interface codegen done\n";
   auto impl = cg.generateImpl(fileDescriptor);
-  std::cout << "impl codegen done\n";
 
   std::ofstream interfaceF(outputPathName + "/pb.h");
   std::ofstream implF(outputPathName + "/pb.cc");
