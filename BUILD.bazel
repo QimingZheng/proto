@@ -1,0 +1,14 @@
+cc_library (
+    name = "proto",
+    srcs = glob(["lib/**/*.cc"]),
+    hdrs = glob(["lib/**/*.h"]),
+    includes = ["lib/"],
+)
+
+cc_binary(
+    name = "protogen",
+    srcs = ["bin/main.cc"],
+    deps = [
+        ":proto",
+    ],
+)
